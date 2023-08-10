@@ -1,51 +1,49 @@
-from tkinter import *
-
-# Calculadora
+from tkinter import Tk, Entry, Text, Frame, NONE, mainloop
+from func import *
 
 calc = Tk()
 calc.title("Calculadora")
+calc.resizable(False, False)
+calc.configure(bg='black')
+calc.bind("<Key>", lambda event: on_key_press(event, display))
 
-# Actions
-def insertValue(value):
-    display.insert(END, value)
 
-def clear():
-    display.delete(0, END)
-
-def calculate():
-    result = eval(display.get())
-    display.delete(0, END)
-    display.insert(0, str(result))
-
-display = Entry(calc, font="Arial 20 bold", bg="white", fg="black", width=19)
-display.pack()
+display = Text(calc, font="Arial 20 bold", bg="white", fg="black", height=3, width=19, wrap=NONE, bd=0) # Mudança de Entry para Text para poder usar o wrap=NONE. 
+display.pack(fill='x', expand=True) # Mudança de grid para pack para poder usar o fill='x' e expand=True e assim o display ocupar toda a largura de sua linha.
 
 painel = Frame(calc, bg="black")
 
 # Botões
-# Primeira linha
-btn7 = Button(painel, bg="white", fg="black", bd=1, text="7", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("7")).grid(row=0, column=0)
-btn8 = Button(painel, bg="white", fg="black", bd=1, text="8", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("8")).grid(row=0, column=1)
-btn8 = Button(painel, bg="white", fg="black", bd=1, text="9", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("9")).grid(row=0, column=2)
-btnDiv = Button(painel, bg="white", fg="black", bd=1, text="/", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("/")).grid(row=0, column=3)
 
-# Segunda linha
-btn4 = Button(painel, bg="white", fg="black", bd=1, text="4", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("4")).grid(row=1, column=0)
-btn5 = Button(painel, bg="white", fg="black", bd=1, text="5", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("5")).grid(row=1, column=1)
-btn6 = Button(painel, bg="white", fg="black", bd=1, text="6", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("6")).grid(row=1, column=2)
-btnMult = Button(painel, bg="white", fg="black", bd=1, text="*", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("*")).grid(row=1, column=3)
+# row 0
+create_button(painel, "(", lambda: insertValue(display, "("), 0, 0, bg="darkorange", fg="white")
+create_button(painel, ")", lambda: insertValue(display, ")"), 0, 1, bg="darkorange", fg="white")
+create_button(painel, "^", lambda: insertValue(display, "**"), 0, 2, bg="darkorange", fg="white")
+create_button(painel, "√", lambda: insertValue(display, "sqrt("), 0, 3, bg="darkorange", fg="white")
 
-# Terceira linha
-btn1 = Button(painel, bg="white", fg="black", bd=1, text="1", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("1")).grid(row=2, column=0)
-btn2 = Button(painel, bg="white", fg="black", bd=1, text="2", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("2")).grid(row=2, column=1)
-btn3 = Button(painel, bg="white", fg="black", bd=1, text="3", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("3")).grid(row=2, column=2)
-btnSum = Button(painel, bg="white", fg="black", bd=1, text="+", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("+")).grid(row=2, column=3)
+# 1
+create_button(painel, "7", lambda: insertValue(display, "7"), 1, 0, bg="#232323", fg="white")
+create_button(painel, "8", lambda: insertValue(display, "8"), 1, 1, bg="#232323", fg="white")
+create_button(painel, "9", lambda: insertValue(display, "9"), 1, 2, bg="#232323", fg="white")
+create_button(painel, "/", lambda: insertValue(display, "/"), 1, 3, bg="darkorange", fg="white")
 
-# Quarta linha
-btn0 = Button(painel, bg="white", fg="black", bd=1, text="0", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("0")).grid(row=3, column=0)
-btnEqual = Button(painel, bg="white", fg="black", bd=1, text="=", font="Arial 16 bold", width=5, height=3, command=calculate).grid(row=3, column=1)
-btnClear = Button(painel, bg="white", fg="black", bd=1, text="C", font="Arial 16 bold", width=5, height=3, command=clear).grid(row=3, column=2)
-btnSub = Button(painel, bg="white", fg="black", bd=1, text="-", font="Arial 16 bold", width=5, height=3, command=lambda: insertValue("-")).grid(row=3, column=3)
+# row 2
+create_button(painel, "4", lambda: insertValue(display, "4"), 2, 0, bg="#232323", fg="white")
+create_button(painel, "5", lambda: insertValue(display, "5"), 2, 1, bg="#232323", fg="white")
+create_button(painel, "6", lambda: insertValue(display, "6"), 2, 2, bg="#232323", fg="white")
+create_button(painel, "*", lambda: insertValue(display, "*"), 2, 3, bg="darkorange", fg="white")
+
+# row 3
+create_button(painel, "1", lambda: insertValue(display, "1"), 3, 0, bg="#232323", fg="white")
+create_button(painel, "2", lambda: insertValue(display, "2"), 3, 1 , bg="#232323", fg="white")
+create_button(painel, "3", lambda: insertValue(display, "3"), 3, 2, bg="#232323", fg="white")
+create_button(painel, "+", lambda: insertValue(display, "+"), 3, 3, bg="darkorange", fg="white")
+
+# row 4
+create_button(painel, "0", lambda: insertValue(display, "0"), 4, 0 , bg="#232323", fg="white")
+create_button(painel, "=", lambda: calculate(display), 4, 1, bg="#232323", fg="white")
+create_button(painel, "C", lambda: clear(display), 4, 2, bg="#232323", fg="white")
+create_button(painel, "-", lambda: insertValue(display, "-"), 4, 3, bg="darkorange", fg="white")
 
 
 painel.pack()
