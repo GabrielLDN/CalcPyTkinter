@@ -108,5 +108,3 @@ Programa auxiliar usado para detectar e imprimir o nome das teclas pressionadas.
 - Adicionar suporte para teclas de função.
 
 ---
-
-A documentação foi organizada para destacar os principais componentes e funcionalidades do programa. As seções foram estruturadas para facilitar a leitura e compreensão.
