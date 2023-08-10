@@ -4,6 +4,12 @@
 
 Uma calculadora simples construída usando a biblioteca Tkinter do Python. O programa é composto por três arquivos: `main.py`, `func.py` e `keysym.py`.
 
+<p align="center">
+  <img src="https://i.imgur.com/ExOmd2S.png" alt="Imagem da calculadora hospedada no Imgur para não poluir arquivos do projeto"/>
+</p>
+
+
+
 ## Arquivos:
 
 ### 1. **main.py**:
@@ -11,6 +17,9 @@ Uma calculadora simples construída usando a biblioteca Tkinter do Python. O pro
 #### Descrição:
 
 O arquivo `main.py` é o ponto de entrada do programa da calculadora. Ele é responsável por criar a interface gráfica do usuário (GUI) e interagir com as funções definidas em `func.py`.
+<p align="center">
+  <img src="https://i.imgur.com/dtVJSOp.png" alt="Imagem da calculadora hospedada no Imgur para não poluir arquivos do projeto"/>
+</p>
 
 #### Detalhes:
 
@@ -46,6 +55,10 @@ O arquivo `main.py` é o ponto de entrada do programa da calculadora. Ele é res
 
 O arquivo `func.py` contém as funções essenciais que são usadas pelo arquivo `main.py` para executar as operações da calculadora e interagir com a GUI.
 
+<p align="center">
+  <img src="https://i.imgur.com/vNdyumf.png" alt="Imagem da calculadora hospedada no Imgur para não poluir arquivos do projeto"/>
+</p>
+
 #### Detalhes:
 
 - **Importações**:
@@ -64,7 +77,15 @@ O arquivo `func.py` contém as funções essenciais que são usadas pelo arquivo
 
 Programa auxiliar usado para detectar e imprimir o nome das teclas pressionadas. Foi usado durante o desenvolvimento para descobrir os nomes das teclas para serem usados no programa principal.
 
+<p align="center">
+  <img src="https://i.imgur.com/UQeJIMV.png" alt="Imagem da calculadora hospedada no Imgur para não poluir arquivos do projeto"/>
+</p>
+
 ## Como usar:
+
+<p align="center">
+  <img src="https://i.imgur.com/KedCE4h.gif" alt="Gif do programa funcionando!">
+</p>
 
 1. Execute o arquivo `main.py` para iniciar a calculadora.
 2. Use os botões na GUI ou as teclas do teclado para inserir números e operações.
